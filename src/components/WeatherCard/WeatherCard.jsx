@@ -15,6 +15,8 @@ function WeatherCard({ weatherData }) {
       option.condition === normalizedCondition && option.day === !isNight,
   );
 
+  if (weatherData?.temp === undefined) return <div>Loading temperature...</div>;
+
   return (
     <section className="weather-card">
       <p className="weather-card__temp">{Math.round(temp)}&deg; F</p>
