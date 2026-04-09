@@ -7,7 +7,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { apiKey } from "../../utils/constants.js";
-import { Footer } from "../Footer/Footer.jsx";
+import Footer from "../Footer/Footer.jsx";
 import { coordinates as fallbackCoordinates } from "../../utils/constants.js";
 import { defaultClothingItems } from "../../utils/constants.js";
 
@@ -83,6 +83,7 @@ function App() {
         <Footer />
       </div>
       <ModalWithForm
+        isOpen={activeModal === "add-garment"}
         title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
@@ -147,6 +148,7 @@ function App() {
         </fieldset>
       </ModalWithForm>
       <ItemModal
+        isOpen={activeModal === "preview"}
         activeModal={activeModal}
         selectedCard={selectedCard}
         closeActiveModal={closeActiveModal}
