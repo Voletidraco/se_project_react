@@ -1,0 +1,130 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #000;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+}
+
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__input {
+  display: block;
+  width: 100%;
+  margin: 8px 0 24px;
+  border: none;
+  border-bottom: 1px solid #00000080;
+  outline: none;
+  padding: 4px 0;
+}
+
+.modal__input::placeholder {
+  color: #00000080;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.modal__legend {
+  margin: 0 0 12px;
+}
+
+.modal__radio-btns {
+  border: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__label_type_radio {
+  color: #00000080;
+  margin: 0 0 8px;
+  cursor: pointer;
+}
+
+.modal__label_type_radio:last-child {
+  margin: 0;
+}
+
+.modal__label_type_radio:has(.modal__radio-input:checked) {
+  color: #000;
+}
+
+.modal__radio-input {
+  accent-color: #00000080;
+  padding: 0;
+  margin-right: 8px;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.modal__radio-input:checked {
+  accent-color: #000;
+}
+
+.modal__submit {
+  height: 36px;
+  width: 124px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
+}
+
+.modal__close {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
