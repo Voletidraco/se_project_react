@@ -1,7 +1,11 @@
 import "./ItemModal.css";
 import closeIconWhite from "../../assets/close_button_white.svg";
 
-function ItemModal({ isOpen, selectedCard, closeActiveModal }) {
+function ItemModal({ isOpen, selectedCard, closeActiveModal, onDeleteItem }) {
+  const handleDeleteClick = () => {
+    onDeleteItem(selectedCard._id);
+  };
+
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
@@ -13,13 +17,22 @@ function ItemModal({ isOpen, selectedCard, closeActiveModal }) {
           <img src={closeIconWhite} alt="Close" />
         </button>
         <img
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
           className="modal__image"
         />
         <div className="modal__footer">
-          <h2 className="modal__caption">{selectedCard.name}</h2>
-          <p className="modal__weather">Weather: {selectedCard.weather}</p>
+          <div className="modal__footer-info">
+            <h2 className="modal__caption">{selectedCard.name}</h2>
+            <p className="modal__weather">Weather: {selectedCard.weather}</p>
+          </div>
+          <button
+            onClick={handleDeleteClick}
+            type="button"
+            className="modal__delete-btn"
+          >
+            Delete item
+          </button>
         </div>
       </div>
     </div>

@@ -10,12 +10,17 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
 };
 
 export const filterWeatherData = (data) => {
+  const tempF = data.main.temp;
+  const tempC = ((tempF - 32) * 5) / 9;
+
   return {
     city: data.name,
-    temp: data.main.temp,
-    type: data.main.temp >= 86 ? "hot" : data.main.temp >= 66 ? "warm" : "cold",
+    temp: {
+      F: Math.round(tempF),
+      C: Math.round(tempC),
+    },
+    type: data.main.temp >= 72 ? "hot" : data.main.temp >= 66 ? "warm" : "cold",
 
-    // 👇 keep these for WeatherCard icons
     condition: data.weather[0].main,
     isNight: data.dt < data.sys.sunrise || data.dt > data.sys.sunset,
   };

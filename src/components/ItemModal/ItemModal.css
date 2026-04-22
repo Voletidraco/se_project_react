@@ -6,6 +6,7 @@
 }
 
 .modal__close_preview {
+  position: absolute;
   top: 24px;
   right: 24px;
 }
@@ -16,8 +17,15 @@
 
 .modal__footer {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 32px 32px 32px;
+}
+
+.modal__footer-info {
+  display: flex;
   flex-direction: column;
-  padding: 20px 0 32px 32px;
 }
 
 .modal__caption {
@@ -29,4 +37,15 @@
 .modal__weather {
   margin: 0;
   font-size: 20px;
+}
+
+.modal__delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4d00;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0;
+  white-space: nowrap;
 }
