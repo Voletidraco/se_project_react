@@ -64,8 +64,6 @@ function App() {
 
   useEffect(() => {
     if (!navigator.geolocation) {
-      console.log("Geolocation not supported, using fallback coordinates");
-
       getWeather(fallbackCoordinates, apiKey)
         .then((data) => {
           const filteredData = filterWeatherData(data);
@@ -91,8 +89,6 @@ function App() {
           .catch(console.error);
       },
       (error) => {
-        console.log("Geolocation failed, using fallback coordinates");
-
         getWeather(fallbackCoordinates, apiKey)
           .then((data) => {
             const filteredData = filterWeatherData(data);
@@ -131,6 +127,7 @@ function App() {
               path="/profile"
               element={
                 <Profile
+                  onAddItemClick={handleAddClick}
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
