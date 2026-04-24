@@ -138,13 +138,11 @@ function App() {
         </div>
         <AddItemModal
           isOpen={activeModal === "add-garment"}
-          activeModal={activeModal}
           closeActiveModal={closeActiveModal}
           onAddItem={onAddItem}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
-          activeModal={activeModal}
           selectedCard={selectedCard}
           closeActiveModal={closeActiveModal}
           onDeleteItem={handleDeleteItem}

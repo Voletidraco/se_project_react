@@ -5,11 +5,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   if (!weatherData || !weatherData.temp) {
     return <p>Loading...</p>;
   }
 
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const displayTemp = weatherData.temp[currentTemperatureUnit];
 
   return (

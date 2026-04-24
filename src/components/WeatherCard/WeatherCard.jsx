@@ -4,6 +4,8 @@ import { weatherOptions, normalizeCondition } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
   if (!weatherData) {
     return <p>Loading weather...</p>;
   }
@@ -17,11 +19,9 @@ function WeatherCard({ weatherData }) {
       option.condition === normalizedCondition && option.day === !isNight,
   );
 
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  if (weatherData?.temp === undefined) return <div>Loading temperature...</div>;
 
   const displayTemp = weatherData.temp[currentTemperatureUnit];
-
-  if (weatherData?.temp === undefined) return <div>Loading temperature...</div>;
 
   return (
     <section className="weather-card">
