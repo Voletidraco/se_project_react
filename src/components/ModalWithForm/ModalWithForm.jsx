@@ -8,9 +8,15 @@ function ModalWithForm({
   isOpen,
   closeActiveModal,
   onSubmit,
+  isValid = true,
+  switchLinkText,
+  onSwitchClick,
+  className = "",
 }) {
+  const isAuthModal = className === "modal_auth";
+
   return (
-    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
+    <div className={`modal ${className} ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button
@@ -20,11 +26,38 @@ function ModalWithForm({
         >
           <img src={closeIcon} alt="Close" />
         </button>
-        <form onSubmit={onSubmit} className="modal__form">
+        <form
+          onSubmit={onSubmit}
+          className="modal__form"
+          noValidate={isAuthModal}
+        >
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          {isAuthModal ? (
+            <div className="modal__footer">
+              <button
+                type="submit"
+                className={`modal__submit ${
+                  isValid ? "" : "modal__submit_disabled"
+                }`}
+                disabled={!isValid}
+              >
+                {buttonText}
+              </button>
+              {switchLinkText && (
+                <button
+                  type="button"
+                  className="modal__switch-link"
+                  onClick={onSwitchClick}
+                >
+                  {switchLinkText}
+                </button>
+              )}
+            </div>
+          ) : (
+            <button type="submit" className="modal__submit">
+              {buttonText}
+            </button>
+          )}
         </form>
       </div>
     </div>

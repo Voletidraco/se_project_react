@@ -24,8 +24,13 @@
   height: 25px;
   padding: 0;
   border: none;
-  color: #00000099;
+  background: none;
+  color: #00000060;
   cursor: pointer;
+}
+
+.clothes-section__add-new-btn:hover {
+  color: #00000080;
 }
 
 .clothes-section__list {

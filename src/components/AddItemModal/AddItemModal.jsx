@@ -18,6 +18,11 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
     onAddItem(values);
   }
 
+  const isValid =
+    values.name.trim() !== "" &&
+    values.imageUrl.trim() !== "" &&
+    values.weather !== "";
+
   return (
     <ModalWithForm
       title="New garment"
@@ -26,6 +31,7 @@ const AddItemModal = ({ isOpen, onAddItem, closeActiveModal }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       closeActiveModal={closeActiveModal}
+      isValid={isValid}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}
