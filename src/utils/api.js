@@ -7,11 +7,10 @@ const authHeaders = (token) => ({
   authorization: `Bearer ${token}`,
 });
 
-const handleServerResponse = (res) => {
+export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-// GET /items is public — no token needed.
 export const getItems = () => {
   return fetch(`${baseUrl}/items`, { headers }).then(handleServerResponse);
 };
